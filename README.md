@@ -10,6 +10,20 @@
 By default, we install to `/usr/local`. If you'd like to change the installation location, run
 `sudo DESTDIR=/path/to/install make install` as desired.
 
+## Makefile & Clang
+
+1. Install clang on your OS by using this command:
+`sudo apt install clang`
+2. In your working directory create `Makefile` by typing:
+`nano Makefile`
+3. Paste the following code:
+```
+LDLIBS += -lcsbootcamp
+CC := clang
+MAKEFLAGS += --silent
+```
+4. Save & Quit.
+
 ## Troubleshooting
 1. If, when compiling a program, you see `/usr/bin/ld: cannot find -lcsbootcamp`:
 Add `export LIBRARY_PATH=/usr/local/lib` to your `.bashrc`.
@@ -24,13 +38,6 @@ Close and reopen any terminal windows.
 
 Link with `-lcsbootcamp`.
 
-    #include <csbootcamp.h>
+**#include <csbootcamp.h>**
 
-    ...
-    char c = get_char("Prompt: ");
-    double d = get_double("Prompt: ");
-    float f = get_float("Prompt: ");
-    int i = get_int("Prompt: ");
-    long l = get_long("Prompt: ");
-    string s = get_string("Prompt: ");
 
